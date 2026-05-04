@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evento</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/forms.css">
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="page">
+      <div class="container">
+        <h1>Inscreva-se em um Evento</h1>
+
+        <form id="event-form" class="form-section">
+          <h2 class="mt-0">Evento</h2>
+          <label for="evento">Selecione o Evento:</label>
+          <select id="evento" name="evento">
+            <option value="voe-sem-asas">Voe sem asas</option>
+            <option value="festa-junina">Festa Junina</option>
+            <option value="semana-eventos">Semana de Eventos</option>
+          </select>
+        </form>
+
+        <form id="access-form" class="form-section">
+          <h2 class="mt-0">Informações de Acesso</h2>
+          <label for="usuario">Usuário:</label>
+          <input type="text" id="usuario" name="usuario" required>
+
+          <label for="senha">Senha:</label>
+          <input type="password" id="senha" name="senha" required>
+
+          <label for="confirme-senha">Confirme Senha:</label>
+          <input type="password" id="confirme-senha" name="confirme-senha" required>
+        </form>
+
+        <form id="personal-form" class="form-section">
+          <h2 class="mt-0">Informações Pessoais</h2>
+          <label for="nome">Nome Completo:</label>
+          <input type="text" id="nome" name="nome" required>
+
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+
+          <label for="celular">Celular:</label>
+          <input type="tel" id="celular" name="celular" placeholder="(11) 99999-9999" required>
+
+          <fieldset class="choice-group">
+            <legend>Sexo</legend>
+            <label class="radio-option" for="feminino">
+              <input type="radio" id="feminino" name="sexo" value="feminino">
+              Feminino
+            </label>
+            <label class="radio-option" for="masculino">
+              <input type="radio" id="masculino" name="sexo" value="masculino">
+              Masculino
+            </label>
+          </fieldset>
+
+          <label for="data-nascimento">Data de Nascimento:</label>
+          <input type="date" id="data-nascimento" name="data-nascimento" required>
+
+          <label for="cor-favorita">Cor Favorita:</label>
+          <div class="inline-color">
+            <input type="color" id="cor-favorita" name="cor-favorita" class="color-input">
+            <span id="color-preview" class="color-preview"></span>
+          </div>
+
+          <label for="perfil-git">Perfil do Git:</label>
+          <input type="url" id="perfil-git" name="perfil-git" placeholder="https://github.com/username">
+        </form>
+
+        <div class="actions">
+          <button type="button" class="btn btn-danger" onclick="limparFormulario()">Limpar</button>
+          <button type="button" class="btn btn-primary" onclick="enviarFormulario()">Enviar</button>
+        </div>
+      </div>
+    </main>
+    <div id="site-footer"></div>
+    <script src="include-components.js"></script>
+    <script>
+      function limparFormulario() {
+        document.getElementById('event-form').reset();
+        document.getElementById('access-form').reset();
+        document.getElementById('personal-form').reset();
+        document.getElementById('color-preview').style.backgroundColor = '#ffffff';
+      }
+      function enviarFormulario() {
+        const usuario = document.getElementById('usuario').value.trim();
+        const senha = document.getElementById('senha').value;
+        const confirmeSenha = document.getElementById('confirme-senha').value;
+        const nome = document.getElementById('nome').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const celular = document.getElementById('celular').value.trim();
+        const sexo = document.querySelector('input[name="sexo"]:checked');
+        const dataNascimento = document.getElementById('data-nascimento').value;
+        const perfilGit = document.getElementById('perfil-git').value.trim();
+        if (!usuario || !senha || !confirmeSenha || !nome || !email || !celular || !sexo || !dataNascimento || !perfilGit) {
+          alert('Por favor, preencha todos os campos obrigatórios.');
+          return;
+        }
+        if (senha !== confirmeSenha) {
+          alert('As senhas não coincidem.');
+          return;
+        }
+        alert('Formulário enviado!');
+      }
+      document.getElementById('cor-favorita').addEventListener('input', function() {
+        document.getElementById('color-preview').style.backgroundColor = this.value;
+      });
+    </script>
+</body>
+</html>

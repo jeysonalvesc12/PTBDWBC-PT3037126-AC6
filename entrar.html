@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrar</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/forms.css">
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="page">
+      <div class="container">
+        <h1>Entrar</h1>
+        <form id="login-form" class="form-section">
+          <label for="usuario">Usuário:</label>
+          <input type="text" id="usuario" name="usuario" required>
+
+          <label for="senha">Senha:</label>
+          <input type="password" id="senha" name="senha" required>
+
+          <div class="actions">
+            <button type="submit" class="btn btn-primary">Entrar</button>
+            <a href="#" class="forgot-password">Esqueci a senha</a>
+          </div>
+        </form>
+      </div>
+    </main>
+    <div id="site-footer"></div>
+    <script src="include-components.js"></script>
+    <script>
+      document.getElementById('login-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const usuario = document.getElementById('usuario').value.trim();
+        const senha = document.getElementById('senha').value;
+        if (!usuario || !senha) {
+          alert('Por favor, preencha usuário e senha.');
+          return;
+        }
+        alert('Login realizado com sucesso!');
+        this.reset();
+      });
+    </script>
+</body>
+</html>

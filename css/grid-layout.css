@@ -1,0 +1,53 @@
+
+/* Semana 07 - Grid Layout */
+.home-grid{
+  display:grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-areas:
+    "hero side"
+    "cards side";
+  gap:24px;
+  margin:24px auto;
+  max-width:1200px;
+  padding:0 16px;
+}
+
+.home-hero{grid-area:hero;}
+.home-side{grid-area:side;}
+.home-cards{
+  grid-area:cards;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+
+.grid-card{
+  border:1px solid #ddd;
+  border-radius:10px;
+  padding:18px;
+  background:#fff;
+  box-shadow:0 2px 8px rgba(0,0,0,.06);
+}
+
+.grid-card img{
+  max-width:100%;
+  height:auto;
+  display:block;
+  margin:0 auto 12px;
+}
+
+.home-hero img, .home-side img{
+  max-width:100%;
+  height:auto;
+  border-radius:10px;
+}
+
+@media (max-width: 900px){
+  .home-grid{
+    grid-template-columns:1fr;
+    grid-template-areas:
+      "hero"
+      "cards"
+      "side";
+  }
+}
