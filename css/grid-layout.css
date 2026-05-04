@@ -1,0 +1,41 @@
+
+.home-grid{
+  max-width: 1180px;
+  margin: 28px auto;
+  padding: 0 18px 28px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 34px 56px;
+}
+
+.news-card{
+  text-align: center;
+}
+
+.news-card img{
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  display: block;
+  margin: 0 auto 16px;
+}
+
+.news-card h3{
+  font-size: 1.35rem;
+  margin: 0 0 8px;
+  color: #111;
+}
+
+.news-card p{
+  margin: 0;
+  font-size: 1rem;
+  color: #222;
+  line-height: 1.45;
+}
+
+@media (max-width: 900px){
+  .home-grid{
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}
