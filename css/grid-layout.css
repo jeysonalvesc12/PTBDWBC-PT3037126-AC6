@@ -1,4 +1,5 @@
 
+/* Home - notícias em grid mantendo cabeçalho, vídeo e rodapé existentes */
 .home-grid{
   max-width: 1180px;
   margin: 28px auto;
