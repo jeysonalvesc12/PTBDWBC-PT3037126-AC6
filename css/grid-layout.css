@@ -1,42 +1,54 @@
 
-/* Home - notícias em grid mantendo cabeçalho, vídeo e rodapé existentes */
-.home-grid{
-  max-width: 1180px;
-  margin: 28px auto;
-  padding: 0 18px 28px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 34px 56px;
+/* Home Semana 07 - mantendo cabeçalho, vídeo e rodapé */
+.home-news{
+    max-width: 1200px;
+    margin: 30px auto 20px;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px 60px;
 }
 
-.news-card{
-  text-align: center;
+.news-item{
+    text-align: center;
 }
 
-.news-card img{
-  width: 100%;
-  max-width: 360px;
-  height: auto;
-  display: block;
-  margin: 0 auto 16px;
+.news-item img{
+    width: 100%;
+    max-width: 380px;
+    height: auto;
+    display: block;
+    margin: 0 auto 16px;
 }
 
-.news-card h3{
-  font-size: 1.35rem;
-  margin: 0 0 8px;
-  color: #111;
+.news-item h3{
+    margin: 0 0 10px;
+    font-size: 1.9rem;
+    line-height: 1.2;
 }
 
-.news-card p{
-  margin: 0;
-  font-size: 1rem;
-  color: #222;
-  line-height: 1.45;
+.news-item p{
+    margin: 0;
+    font-size: 1.15rem;
+    line-height: 1.5;
+}
+
+.home-video{
+    max-width: 1100px;
+    margin: 10px auto 30px;
 }
 
 @media (max-width: 900px){
-  .home-grid{
-    grid-template-columns: 1fr;
-    gap: 28px;
-  }
+    .home-news{
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .news-item h3{
+        font-size: 1.5rem;
+    }
+
+    .news-item p{
+        font-size: 1rem;
+    }
 }
